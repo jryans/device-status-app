@@ -1,0 +1,15 @@
+{
+  "name": "Device Status",
+  "description": "Firefox OS app to display various device status bits.",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "J. Ryan Stinnett",
+    "url": "https://github.com/jryans"
+  },
+  "default_locale": "en",
+  "permissions": {
+    "geolocation": {
+      "description": "Required to test location"
+    }
+  }
+}
