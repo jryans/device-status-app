@@ -3,11 +3,15 @@
 angular.module('deviceStatusAppAngularApp', [])
   .config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
+      .when('/geolocation', {
         templateUrl: 'views/geolocation.html',
         controller: 'GeolocationCtrl'
       })
+      .when('/battery', {
+        templateUrl: 'views/battery.html',
+        controller: 'BatteryCtrl'
+      })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/geolocation'
       });
   });
