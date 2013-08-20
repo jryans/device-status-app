@@ -8,6 +8,9 @@ angular.module('deviceStatusAppAngularApp')
     };
 
     $scope.getLocation = function() {
-      $scope.location = geolocation.get();
+      geolocation.get().then(function(location) {
+        $scope.location = location;
+        $scope.$apply();
+      });
     };
   });

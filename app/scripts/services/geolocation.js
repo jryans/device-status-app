@@ -6,14 +6,23 @@ angular.module('deviceStatusAppAngularApp')
     if (!navigator.geolocation) {
       return {
         get: function() {
-          return { lat: "ERROR", long: "ERROR" };
+          return when.resolve({ lat: "ERROR", long: "ERROR" });
         }
       };
     }
 
     return {
       get: function() {
-        return { lat: 12, long: 4 };
+        var deferred = when.defer();
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+          deferred.resolve({
+            lat: position.coords.latitude,
+            long: position.coords.longitude
+          });
+        });
+
+        return deferred.promise;
       }
     };
   });
